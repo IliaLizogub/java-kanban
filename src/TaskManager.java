@@ -8,10 +8,6 @@ public class TaskManager {
 
     private int nextID = 1;
 
-    private int getNextID() {
-        return nextID++;
-    }
-
     public Task addTask(Task task) {
         task.setId(getNextID());
         tasks.put(task.getId(), task);
@@ -155,6 +151,9 @@ public class TaskManager {
         updateEpicStatus(epic);
     }
 
+    private int getNextID() {
+        return nextID++;
+    }
     // вспомогательный private метод для контроля статуса эпика при удалении или изменении подзадач
     private void updateEpicStatus(Epic epic) {
         int allIsDoneCount = 0;
